@@ -5,6 +5,75 @@
 
 Laravel 8 with CRUD: users, roles, permissions and sessions
 
+### Features
+
+- Users management with roles and permissions
+- Products management with tags (many-to-many)
+- Tags management
+- Report: Tags → Total Products
+
+### Products & Tags
+
+#### Schema
+
+```sql
+CREATE TABLE `products` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `products_name_unique` (`name`)
+);
+
+CREATE TABLE `tags` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tags_name_unique` (`name`)
+);
+
+CREATE TABLE `product_tag` (
+  `product_id` bigint unsigned NOT NULL,
+  `tag_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`product_id`,`tag_id`),
+  CONSTRAINT `product_tag_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `product_tag_tag_id_foreign` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE
+);
+```
+
+#### Report: Tags → Total Products SQL
+
+```sql
+SELECT t.name AS tag, COUNT(pt.product_id) AS total_products
+FROM tags t
+LEFT JOIN product_tag pt ON pt.tag_id = t.id
+GROUP BY t.id, t.name
+ORDER BY total_products DESC;
+```
+
+#### Routes
+
+| Method | URL | Action |
+|--------|-----|--------|
+| GET | /products | List products (paginated) |
+| GET | /products/create | Show create form |
+| POST | /products | Store new product |
+| GET | /products/{id} | Show product |
+| GET | /products/{id}/edit | Show edit form |
+| PUT | /products/{id} | Update product |
+| DELETE | /products/{id} | Delete product |
+| GET | /tags | List tags (paginated) |
+| GET | /tags/create | Show create form |
+| POST | /tags | Store new tag |
+| GET | /tags/{id} | Show tag |
+| GET | /tags/{id}/edit | Show edit form |
+| PUT | /tags/{id} | Update tag |
+| DELETE | /tags/{id} | Delete tag |
+| GET | /reports/tags | Tags → Total Products report |
+
 ### To Run
 
 #### Using Sail

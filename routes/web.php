@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\ReportController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,9 +24,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/sessions/live', [SessionController::class, 'liveSessions'])->name('sessions.live');
     Route::get('/sessions', [SessionController::class, 'index'])->name('sessions.index');
 
-    Route::get('/clear-cache', function () {
-        Artisan::call('config:cache');
-        Artisan::call('cache:clear');
-        return 'Cache cleared';
-    });
+Route::resource(name: 'products', controller: ProductController::class);
+Route::resource(name: 'tags', controller: TagController::class);
+Route::get('/reports/tags', [ReportController::class, 'tags'])->name('reports.tags');
+
+Route::get('/clear-cache', function() {
+    $configCache = Artisan::call('config:cache');
+    $clearCache = Artisan::call('cache:clear');
+    return "Cache cleared";
 });
