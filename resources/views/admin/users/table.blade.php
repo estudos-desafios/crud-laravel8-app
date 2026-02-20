@@ -8,9 +8,10 @@
                 <tr>
                     <th data-priority="1" class="w-2/12">Name</th>
                     <th data-priority="2">Email</th>
-                    <th data-priority="3">Whats</th>
-                    <th data-priority="4">CPF</th>
-                    <th data-priority="5">Ações</th>
+                    <th data-priority="3">WhatsApp</th>
+                    <th data-priority="4">Address</th>
+                    <th data-priority="5">CPF</th>
+                    <th data-priority="6">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,8 +20,9 @@
                     <tr>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>Whats</td>
-                        <td>61930303323</td>
+                        <td>{{ $user->whatsapp ?? '-' }}</td>
+                        <td>{{ $user->address ?? '-' }}</td>
+                        <td>{{ $user->cpf ?? '-' }}</td>
                         <td>
                             <x-jet-button wire:loading.attr="disabled" wire:target="users.edit">
                                 {{ __('Edit') }}
