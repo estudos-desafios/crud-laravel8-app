@@ -28,6 +28,22 @@ class StoreUserRequest extends FormRequest
                 'required',
                 'array',
             ],
+            'whatsapp' => [
+                'nullable',
+                'string',
+                'max:20',
+            ],
+            'address' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'cpf' => [
+                'nullable',
+                'string',
+                'max:14',
+                'regex:/^\d{3}\.\d{3}\.\d{3}-\d{2}$|^\d{11}$/',
+            ],
         ];
     }
 
