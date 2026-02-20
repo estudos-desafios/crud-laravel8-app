@@ -31,6 +31,24 @@
                         </x-jet-nav-link>
                     </div>
                 @endcan
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products.*')">
+                        {{ __('Products') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('tags.index') }}" :active="request()->routeIs('tags.*')">
+                        {{ __('Tags') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('reports.tags') }}" :active="request()->routeIs('reports.*')">
+                        {{ __('Reports') }}
+                    </x-jet-nav-link>
+                </div>
                 {{-- @endif --}}
 
             </div>
