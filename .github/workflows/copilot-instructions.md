@@ -8,7 +8,7 @@ neste repositório Laravel.
 
 ## 📌 Linguagem e Estilo
 
-- Todo código deve ser escrito em **PHP 8.1+**, compatível com Laravel.
+- Todo código deve ser escrito em **PHP 7.3 ou superior** (compatível com `^7.3|^8.0` declarado em `composer.json`), compatível com Laravel 8.
 - Seguir rigorosamente o padrão **PSR-12**.
 - Usar **type hints** em parâmetros, retornos e propriedades sempre que possível.
 - Preferir `strict types` quando aplicável.
