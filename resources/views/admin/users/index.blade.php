@@ -75,10 +75,10 @@
 
                                                 <a href="{{ route('users.edit', $user->id) }}"
                                                     class="text-indigo-600 hover:text-indigo-600 mb-2 mr-2">
-                                                    <x-jet-secondary-button wire:loading.attr="disabled"
+                                                    <x-secondary-button wire:loading.attr="disabled"
                                                         wire:target="users.edit">
                                                         {{ __('Edit') }}
-                                                    </x-jet-secondary-button>
+                                                    </x-secondary-button>
                                                 </a>
 
                                                 <form class="p-0 m-0  inline-flex items-center justify-center "

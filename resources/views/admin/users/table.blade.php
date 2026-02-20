@@ -22,12 +22,12 @@
                         <td>Whats</td>
                         <td>61930303323</td>
                         <td>
-                            <x-jet-button wire:loading.attr="disabled" wire:target="users.edit">
+                            <x-button wire:loading.attr="disabled" wire:target="users.edit">
                                 {{ __('Edit') }}
-                            </x-jet-button>
-                            <x-jet-secondary-button wire:loading.attr="disabled" wire:target="users.show">
+                            </x-button>
+                            <x-secondary-button wire:loading.attr="disabled" wire:target="users.show">
                                 {{ __('View') }}
-                            </x-jet-secondary-button>
+                            </x-secondary-button>
                         </td>
                     </tr>
                 @endforeach
