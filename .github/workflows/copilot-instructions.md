@@ -1,5 +1,5 @@
 # GitHub Copilot – Repository Instructions
-# Projeto: PHP / Laravel
+## Projeto: PHP / Laravel
 
 Estas instruções definem como o GitHub Copilot deve gerar código, exemplos e sugestões
 neste repositório Laravel.
