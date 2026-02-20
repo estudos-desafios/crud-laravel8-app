@@ -10,17 +10,24 @@ class Session extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
+    public $incrementing = false;
+
+    protected $keyType = 'string';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
     protected $fillable = [
+        'id',
         'user_id',
         'ip_address',
         'user_agent',
         'payload',
-        'last_activity' 
+        'last_activity',
     ];
 
     public function getLastLoginAttribute()
