@@ -38,6 +38,33 @@
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="whatsapp" class="block font-medium text-sm text-gray-700">WhatsApp <span class="text-gray-400 text-xs">(optional)</span></label>
+                            <input type="text" name="whatsapp" id="whatsapp" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('whatsapp', '') }}" />
+                            @error('whatsapp')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="address" class="block font-medium text-sm text-gray-700">Address <span class="text-gray-400 text-xs">(optional)</span></label>
+                            <input type="text" name="address" id="address" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('address', '') }}" />
+                            @error('address')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="cpf" class="block font-medium text-sm text-gray-700">CPF <span class="text-gray-400 text-xs">(optional)</span></label>
+                            <input type="text" name="cpf" id="cpf" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('cpf', '') }}" />
+                            @error('cpf')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="roles" class="block font-medium text-sm text-gray-700">Roles</label>
                             <select name="roles[]" id="roles" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
                                 @foreach($roles as $id => $role)
